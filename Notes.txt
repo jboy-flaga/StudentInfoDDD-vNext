@@ -1,0 +1,10 @@
+BDD is used in the unit tests (maybe not in all of them).
+
+I'm not sure if BDD is the right thing to do in every unit test here so if you happen to read this 
+and have an objection to using BDD in some of the tests that are written here please share with me your idea. Thanks.
+
+
+
+Note to Jboy: while a test fixture in TDD typically focuses on the class, in BDD, the emphasis is on a 
+certain "scenario"/context for the class under test.
+	- I got this fom a comment in http://blog.robustsoftware.co.uk/2009/09/bdd-from-scratch-build-your-own.html#IDComment33611685
