@@ -1,0 +1,9 @@
+﻿{
+	"Data": {
+		"DefaultConnection": {
+			/* The name for the automatic instance is MSSQLLocalDB - http://msdn.microsoft.com/en-us/library/hh510202.aspx */
+			/* Note: This is a JSON file that’s why we are using escape characters in the connection string. - http://bitoftech.net/2014/11/18/getting-started-asp-net-5-mvc-6-web-api-entity-framework-7/ */
+			"ConnectionString": "Server=(localdb)\\MSSQLLocalDB;Database=StudentApplication;Trusted_Connection=True;"
+		}
+	}
+}

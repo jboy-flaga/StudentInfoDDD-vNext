@@ -7,8 +7,8 @@ using StudentInfo.StudentApplication.Data.Entities;
 
 namespace StudentInfo.DatabaseInitializationConsoleApp
 {
-    public class StudentApplicationDbContext : DbContext
-    {
+	public class StudentApplicationDbContext : DbContext
+	{
 		public DbSet<Application> Applications { get; set; }
 		public DbSet<Course> Courses { get; set; }
 
@@ -16,7 +16,8 @@ namespace StudentInfo.DatabaseInitializationConsoleApp
 		protected override void OnConfiguring(DbContextOptions builder)
 		{
 			// NOTE: in Window 7 the database is created in C:\Users\<username> folder
-			builder.UseSqlServer(@"Server=(localdb)\v11.0;Database=StudentApplication;Trusted_Connection=True;");
+			// The name for the automatic instance is MSSQLLocalDB - http://msdn.microsoft.com/en-us/library/hh510202.aspx 
+			builder.UseSqlServer(@"Server=(localdb)\MSSQLLocalDB;Database=StudentApplication;Trusted_Connection=True;");
 		}
 	}
 }
