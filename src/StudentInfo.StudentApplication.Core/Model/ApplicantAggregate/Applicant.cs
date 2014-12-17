@@ -14,7 +14,7 @@ namespace StudentInfo.StudentApplication.Core.Model.ApplicantAggregate
 		public IEnumerable<Application> Applications
 		{
 			get { return _applications; }
-			private set { _applications = value.ToList(); }
+			set { _applications = value.ToList(); }
 		}
 
 		public Applicant()

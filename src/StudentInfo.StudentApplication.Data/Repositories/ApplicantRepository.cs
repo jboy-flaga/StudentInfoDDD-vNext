@@ -28,11 +28,17 @@ namespace StudentInfo.StudentApplication.Data.Repositories
 		{
 			var applicantEntity = _dbContext.Applicants.SingleOrDefault(a => a.Id == applicantId);
 			var applicationEntity = MapApplicationModelToEntity(application);
-			if(applicantEntity != null)
+			if (applicantEntity != null)
 			{
 				applicantEntity.Applications.Add(applicationEntity);
 			}
 		}
+
+		public IEnumerable<Applicant> GetAllApplicants()
+		{
+			return _dbContext.Applicants.Select(applicant => MapApplicantEntityToModel(applicant));
+		}
+
 
 		//public Applicant GetApplicantById(Guid id)
 		//{
@@ -54,7 +60,7 @@ namespace StudentInfo.StudentApplication.Data.Repositories
 		//	throw new NotImplementedException();
 		//}
 
-		public void Update(Applicant applicant)
+		public void Update()
 		{
 
 			_dbContext.SaveChanges();
@@ -78,12 +84,12 @@ namespace StudentInfo.StudentApplication.Data.Repositories
 			foreach (var applicationModel in applicantModel.Applications)
 			{
 				var applicationEntity = MapApplicationModelToEntity(applicationModel);
-                applicantEntity.Applications.Add(applicationEntity);
+				applicantEntity.Applications.Add(applicationEntity);
 			}
 
 			return applicantEntity;
 		}
-		
+
 		private Entities.Application MapApplicationModelToEntity(Application applicationModel)
 		{
 			var applicationEntity = new Entities.Application()
@@ -95,6 +101,24 @@ namespace StudentInfo.StudentApplication.Data.Repositories
 			};
 
 			return applicationEntity;
+		}
+		
+		private Applicant MapApplicantEntityToModel(Entities.Applicant applicantEntity)
+		{
+			var applicantModel = new Applicant(applicantEntity.Id)
+			{
+				Name = new FullName(applicantEntity.FirstName, applicantEntity.LastName, applicantEntity.MiddleName),				
+			};
+
+			//// TODO: map applications
+			//var applications = new List<Application>();
+			//foreach (var applicationEntity in applicantEntity.Applications)
+			//{
+			//	var applicationModel = MapApplicationEntityToModel(applicationEntity);
+			//	applications.Add(applicationModel);
+			//}
+
+			return applicantModel;
 		}
 
 		#endregion

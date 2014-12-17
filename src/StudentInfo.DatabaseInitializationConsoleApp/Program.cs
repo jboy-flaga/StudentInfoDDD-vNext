@@ -13,16 +13,16 @@ namespace StudentInfo.DatabaseInitializationConsoleApp
 			Console.ReadLine();
 
 
-			StudentApplicationDbContext db = new StudentApplicationDbContext();
-			db.Courses.Add(new StudentApplication.Data.Entities.Course { Id = Guid.NewGuid(), Name = "New Course" });
-			db.SaveChanges();
+			//StudentApplicationDbContext db = new StudentApplicationDbContext();
+			//db.Courses.Add(new StudentApplication.Data.Entities.Course { Id = Guid.NewGuid(), Name = "New Course" });
+			//db.SaveChanges();
 
 
-			StudentApplicationDbContext newDb = new StudentApplicationDbContext();
-			foreach (var course in newDb.Courses)
-			{
-				Console.WriteLine(string.Format("{0} : {1}", course.Id, course.Name));
-			}
+			//StudentApplicationDbContext newDb = new StudentApplicationDbContext();
+			//foreach (var course in newDb.Courses)
+			//{
+			//	Console.WriteLine(string.Format("{0} : {1}", course.Id, course.Name));
+			//}
 
 
 			Console.ReadLine();

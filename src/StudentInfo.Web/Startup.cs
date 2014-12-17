@@ -8,6 +8,7 @@ using StudentInfo.StudentApplication.Data;
 using StudentInfo.StudentApplication.Core.Interfaces;
 using StudentInfo.StudentApplication.Data.Repositories;
 using Microsoft.Data.Entity;
+using Microsoft.AspNet.Routing;
 
 /// <summary>
 /// NOTE: The comments/explanation on this class came from http://bitoftech.net/2014/11/18/getting-started-asp-net-5-mvc-6-web-api-entity-framework-7/
@@ -69,7 +70,7 @@ namespace StudentInfo.Web
 
 			app.UseMvc();
 
-			app.UseWelcomePage();
+			//app.UseWelcomePage();
 
 		}
 
