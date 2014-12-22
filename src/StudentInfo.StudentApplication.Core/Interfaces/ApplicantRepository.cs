@@ -4,7 +4,9 @@ using System.Collections.Generic;
 
 namespace StudentInfo.StudentApplication.Core.Interfaces
 {
-    public interface IApplicantRepository
+	// I heard that experts recommend to drop the naming convention for interfaces that starts with "I"
+
+    public interface ApplicantRepository
     {
 		//Applicant GetApplicantById(Guid id);
 		//IEnumerable<Application> GetApplicationsByApplicant(Guid applicantId);

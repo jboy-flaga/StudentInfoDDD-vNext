@@ -9,9 +9,9 @@ namespace StudentInfo.Web.Controllers
 {
     public class ApplicantController : Controller
     {
-		private IApplicantRepository _applicantRepository;
+		private ApplicantRepository _applicantRepository;
 
-		public ApplicantController(IApplicantRepository applicationRepository)
+		public ApplicantController(ApplicantRepository applicationRepository)
 		{
 			_applicantRepository = applicationRepository;
 		}

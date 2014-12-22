@@ -6,7 +6,6 @@ namespace StudentInfo.StudentApplication.Data
 {
     public class StudentApplicationDbContext : DbContext
     {
-		public DbSet<Application> Applications { get; set; }
 		public DbSet<Applicant> Applicants { get; set; }
 
 		protected override void OnConfiguring(DbContextOptions builder)

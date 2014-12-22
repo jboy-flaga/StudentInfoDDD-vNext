@@ -7,11 +7,11 @@ using StudentInfo.SharedKernel.ValueObjects;
 
 namespace StudentInfo.StudentApplication.Data.Repositories
 {
-	public class ApplicantRepository : IApplicantRepository
+	public class ConcreteApplicantRepository : Core.Interfaces.ApplicantRepository
 	{
 		private StudentApplicationDbContext _dbContext;
 
-		public ApplicantRepository(StudentApplicationDbContext dbContext)
+		public ConcreteApplicantRepository(StudentApplicationDbContext dbContext)
 		{
 			_dbContext = dbContext;
 		}

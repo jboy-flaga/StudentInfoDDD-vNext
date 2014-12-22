@@ -58,7 +58,7 @@ namespace StudentInfo.Web
 			// This instance will be available for the life time of the request.
 			// There is a nice post about ASP.NET 5 dependency injection can be read here (http://www.khalidabuhakmeh.com/asp-vnext-dependency-injection-lifecycles). 
 			// (Update by Nick Nelson to use Scoped injection instead of using Singleton instance because DbContext is not thread safe).
-			services.AddScoped<IApplicantRepository, ApplicantRepository>();
+			services.AddScoped<ApplicantRepository, ConcreteApplicantRepository>();
 			//services.AddScoped<RegistrationDbContext, RegistrationDbContext>();
 		}
 
