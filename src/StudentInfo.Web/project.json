@@ -20,7 +20,9 @@
 		"EntityFramework.Commands": "7.0.0-*", /* This package will be used to make the DB migrations command available in our Web API project by using KVM */
 		"Microsoft.AspNet.Mvc": "6.0.0-*", /*  This is the core package which adds all the needed components to run Web API and MVC. */
 		"Microsoft.AspNet.Diagnostics": "1.0.0-*", /* Basically this package will be used to display a nice welcome page when you request the base URI for the API in a browser. */
-		"Microsoft.Framework.ConfigurationModel.Json": "1.0.0-*"
+		"Microsoft.Framework.ConfigurationModel.Json": "1.0.0-*",
+
+		"Microsoft.AspNet.Mvc.TagHelpers": "6.0.0-beta2-*"
 	},
     "frameworks" : {
         "aspnet50" : { }/*,

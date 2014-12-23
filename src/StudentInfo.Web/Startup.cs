@@ -39,13 +39,22 @@ namespace StudentInfo.Web
         public void ConfigureServices(IServiceCollection services)
 		{
 			// Add EF services to the services container.
-			// Add “EntityFramework” using SQL Server as our data provider for the database context named “StudentApplicationDbContext”.
-			services
+			//// Add “EntityFramework” using SQL Server as our data provider for the database context named “StudentApplicationDbContext”.
+			//services
+			//	.AddEntityFramework()
+			//	.AddSqlServer()
+			//	.AddDbContext<StudentApplicationDbContext>(options =>
+			//	{
+			//		options.UseSqlServer(Configuration.Get("Data:DefaultConnection:ConnectionString"));
+			//	});
+
+			// Add “EntityFramework” using InMemory Store as our data provider for the database context named “StudentApplicationDbContext”.
+            services
 				.AddEntityFramework()
-				.AddSqlServer()
+				.AddInMemoryStore()
 				.AddDbContext<StudentApplicationDbContext>(options =>
 				{
-					options.UseSqlServer(Configuration.Get("Data:DefaultConnection:ConnectionString"));
+					options.UseInMemoryStore();
 				});
 
 			// Add the MVC component to our pipeline so we can use MVC and Web API.
@@ -59,7 +68,6 @@ namespace StudentInfo.Web
 			// There is a nice post about ASP.NET 5 dependency injection can be read here (http://www.khalidabuhakmeh.com/asp-vnext-dependency-injection-lifecycles). 
 			// (Update by Nick Nelson to use Scoped injection instead of using Singleton instance because DbContext is not thread safe).
 			services.AddScoped<ApplicantRepository, ConcreteApplicantRepository>();
-			//services.AddScoped<RegistrationDbContext, RegistrationDbContext>();
 		}
 
 		// The method “Configure” accepts parameter of type “IApplicationBuilder”, this method configures the pipeline to 
@@ -71,7 +79,6 @@ namespace StudentInfo.Web
 			app.UseMvc();
 
 			//app.UseWelcomePage();
-
 		}
 
 
