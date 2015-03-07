@@ -67,7 +67,7 @@ namespace StudentInfo.Web
 			// This instance will be available for the life time of the request.
 			// There is a nice post about ASP.NET 5 dependency injection can be read here (http://www.khalidabuhakmeh.com/asp-vnext-dependency-injection-lifecycles). 
 			// (Update by Nick Nelson to use Scoped injection instead of using Singleton instance because DbContext is not thread safe).
-			services.AddScoped<ApplicantRepository, ConcreteApplicantRepository>();
+			services.AddScoped<IApplicantRepository, ApplicantRepository>();
 		}
 
 		// The method “Configure” accepts parameter of type “IApplicationBuilder”, this method configures the pipeline to 
@@ -76,7 +76,14 @@ namespace StudentInfo.Web
 		{
 			// For more information on how to configure your application, visit http://go.microsoft.com/fwlink/?LinkID=398940
 
-			app.UseMvc();
+			app.UseMvc(); // ?Uses default route like the one below?
+			//app.UseMvc(routes =>
+			//{
+			//	routes.MapRoute(
+			//		name: "default",
+			//		template: "{controller}/{action}/{id?}",
+			//		defaults: new { controller = "Home", action = "Index" });
+			//});
 
 			//app.UseWelcomePage();
 		}

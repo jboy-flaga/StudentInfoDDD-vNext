@@ -1,0 +1,14 @@
+﻿@using StudentInfo.Web.Models
+@model Applicant
+
+@{
+	ViewBag.Title = "Delete Applicant";
+}
+
+<h1>Delete Applicant</h1>
+
+<form asp-controller="Applicant" asp-action="Delete" method="post">
+	<div>First Name: @Model.FirstName</div>
+	<div>Last Name: @Model.LastName</div>
+	<div><input type="submit" value="Delete" /></div>
+</form>

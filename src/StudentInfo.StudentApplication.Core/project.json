@@ -1,18 +1,18 @@
 ﻿{
 	"version": "1.0.0-*",
 	"dependencies": {
-		"StudentInfo.SharedKernel": "1.0.0-*"
+		"StudentInfo.SharedKernel": ""
 	},
 
 	"frameworks": {
 		"aspnet50": {
 			"dependencies": {
 			}
-		}/*,
+		},
         "aspnetcore50" : { 
             "dependencies": {
-                "System.Runtime": "4.0.20-beta-22231"
+                "System.Runtime": ""
             }
-        }*/
+        }
 	}
 }

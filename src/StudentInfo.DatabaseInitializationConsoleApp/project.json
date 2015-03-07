@@ -2,7 +2,7 @@
 	"version": "1.0.0-*",
 	"dependencies": {
 		"EntityFramework.SqlServer": "7.0.0-*",
-		"EntityFramework.Commands": "7.0.0-*",
+		//"EntityFramework.Commands": "7.0.0-*",
 		"StudentInfo.StudentApplication.Data": "1.0.0-*"
 	},
 	"commands": {
@@ -13,11 +13,11 @@
 		"aspnet50": {
 			"dependencies": {
 			}
-		} /*,
+		},
 		"aspnetcore50": {
 			"dependencies": {
-				"System.Console": "4.0.0-beta-*"
+				"System.Console": ""
 			}
-		}*/
+		}
 	}
 }

@@ -2,7 +2,7 @@
 
 namespace StudentInfo.StudentApplication.Core.Model.Enums
 {
-    public enum ApplicationStatus
+    public enum Decision
     {
 		Pending = 0,
 		Accepted = 1,

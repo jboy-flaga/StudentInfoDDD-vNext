@@ -7,7 +7,7 @@
 		"aspnet50": {
 			"dependencies": {
 			}
-		} /*,
+		},
 		"aspnetcore50": {
 			"dependencies": {
 				"System.Collections": "",
@@ -15,12 +15,12 @@
 				"System.ComponentModel": "",
 				"System.Linq": "",
 				"System.Reflection": "",
-				"System.Runtime": "4.0.20-beta-22231",
+				"System.Runtime": "",
 				"System.Runtime.InteropServices": "",
 				"System.Threading": "",
 				"System.Threading.Tasks": ""
 			}
-		}*/
+		}
 	},
 	"compilationOptions": {
 		//"languageVersion": "experimental" // to be able to use new features of C# 6

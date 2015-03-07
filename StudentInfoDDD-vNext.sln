@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.22310.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "StudentApplication", "StudentApplication", "{A1591A4E-AEF5-4532-AC03-ADF5306F51D2}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "StudentApplicationBoundedContext", "StudentApplicationBoundedContext", "{A1591A4E-AEF5-4532-AC03-ADF5306F51D2}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SharedKernel", "SharedKernel", "{CC7746A8-4B8D-433D-A422-837D30E433A6}"
 EndProject
@@ -16,7 +16,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{DF05E3D7-C446-4A4F-9E90-D2E07DA0BA9A}"
 	ProjectSection(SolutionItems) = preProject
-		Notes.txt = Notes.txt
+		test\Notes.txt = test\Notes.txt
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SharedKernelTests", "SharedKernelTests", "{DC5E65F7-10EA-4763-A151-4B02E76C8783}"

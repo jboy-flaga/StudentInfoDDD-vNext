@@ -11,6 +11,6 @@ namespace StudentInfo.StudentApplication.Data.Entities
 		public DateTime ApplicationDate { get; set; }
 
 		// I have chosen to use the enum from the model
-		public ApplicationStatus Status { get; set; }
+		public Decision Status { get; set; }
 	}
 }

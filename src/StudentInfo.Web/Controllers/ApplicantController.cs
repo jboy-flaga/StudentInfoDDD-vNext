@@ -2,34 +2,35 @@
 using StudentInfo.StudentApplication.Core.Interfaces;
 using StudentInfo.Web.Models;
 using System.Collections.Generic;
+using System;
 
 // For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace StudentInfo.Web.Controllers
 {
-    public class ApplicantController : Controller
-    {
-		private ApplicantRepository _applicantRepository;
+	public class ApplicantController : Controller
+	{
+		private IApplicantRepository _applicantRepository;
 
-		public ApplicantController(ApplicantRepository applicationRepository)
+		public ApplicantController(IApplicantRepository applicationRepository)
 		{
 			_applicantRepository = applicationRepository;
 		}
 
-        // GET: /<controller>/
-        public IActionResult Index()
-        {
-            return View(GetAllApplicants());
-        }
+		// GET: /<controller>/
+		public IActionResult Index()
+		{
+			return View(GetAllApplicantVMs());
+		}
 
 		[HttpGet]
-		public IActionResult AddApplicant()
+		public IActionResult Create()
 		{
 			return View(new Applicant());
 		}
 
 		[HttpPost]
-		public IActionResult AddApplicant(Applicant applicant)
+		public IActionResult Create(Applicant applicant)
 		{
 			_applicantRepository.AddApplicant(new StudentApplication.Core.Model.ApplicantAggregate.Applicant
 			{
@@ -38,24 +39,53 @@ namespace StudentInfo.Web.Controllers
 
 			_applicantRepository.Update();
 
-			return View("Index", GetAllApplicants());
+			return View("Index", GetAllApplicantVMs());
 		}
 
-		private List<Applicant> GetAllApplicants()
+		[HttpGet]
+		public IActionResult Delete(Guid id)
+		{
+			StudentApplication.Core.Model.ApplicantAggregate.Applicant applicant = _applicantRepository.GetApplicantById(id);
+			
+			if (applicant == null) { return HttpNotFound(); }
+
+			Applicant applicantVM = new Applicant()
+			{
+				Id = applicant.Id,
+				FirstName = applicant.Name.First,
+				LastName = applicant.Name.Last
+			};
+
+			return View(applicantVM);
+		}
+
+		[HttpPost]
+		[ActionName("Delete")]
+		public IActionResult DeleteConfirm(Guid id)
+		{
+			StudentApplication.Core.Model.ApplicantAggregate.Applicant applicant = _applicantRepository.GetApplicantById(id);
+			_applicantRepository.RemoveApplicant(applicant);
+			_applicantRepository.Update();
+
+			return RedirectToAction("Index");
+		}
+
+		private List<Applicant> GetAllApplicantVMs()
 		{
 			var applicantDomainModels = _applicantRepository.GetAllApplicants();
-			var applicants = new List<Applicant>();
+			var applicantVMs = new List<Applicant>();
 
 			foreach (var applicantDomainModel in applicantDomainModels)
 			{
-				applicants.Add(new Applicant
+				applicantVMs.Add(new Applicant
 				{
+					Id = applicantDomainModel.Id,
 					FirstName = applicantDomainModel.Name.First,
 					LastName = applicantDomainModel.Name.Last
 				});
 			}
 
-			return applicants;
+			return applicantVMs;
 		}
-    }
+	}
 }

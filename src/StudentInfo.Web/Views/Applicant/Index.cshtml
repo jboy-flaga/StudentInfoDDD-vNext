@@ -7,8 +7,8 @@
 
 <h1>List of Applicants</h1>
 
-@*@Html.ActionLink("Add New Applicant", "AddApplicant", "Applicant")*@
-<a asp-controller="Applicant" asp-action="AddApplicant">Add New Applicant</a>
+@*@Html.ActionLink("Add New Applicant", "Create", "Applicant")*@
+<a asp-controller="Applicant" asp-action="Create">Add New Applicant</a>
 
 <table>
 	<thead>
@@ -17,11 +17,17 @@
 			<th>Last Name</th>
 		</tr>
 	</thead>
-	@foreach (var applicant in Model)
-	{
-		<tr>
-			<td>@applicant.FirstName</td>
-			<td>@applicant.LastName</td>
-		</tr>
-	}
+	<tbody>
+		@foreach (var applicant in Model)
+		{
+			<tr>
+				<td>@applicant.FirstName</td>
+				<td>@applicant.LastName</td>
+				<td>
+					@*@Html.ActionLink("Delete", "Delete", routeValues: new { id = applicant.Id })*@
+					<a asp-controller="Applicant" asp-action="Delete" asp-route-id="@applicant.Id">Delete</a>
+				</td>
+			</tr>
+		}
+	</tbody>
 </table>
